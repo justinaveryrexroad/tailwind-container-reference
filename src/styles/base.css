@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /*
+   *  Setup some basic grid classes
+   */
+  .row {
+    --row-gutter: 1rem;
+    margin-left: calc(var(--row-gutter) * -0.5);
+    margin-right: calc(var(--row-gutter) * -0.5);
+    @apply flex flex-wrap;
+  }
+
+  /**
+   *  Default to having columns take up the full width of the row and apply
+   *  base padding for gutters.
+   */
+  .row > * {
+    padding-left: calc(var(--row-gutter) * 0.5);
+    padding-right: calc(var(--row-gutter) * 0.5);
+    @apply w-full max-w-full flex-shrink-0;
+  }
+
+  /**
+   *  Make columns equal width over the remaining space
+   */
+  .col {
+    @apply flex-shrink-0 flex-grow basis-0;
+  }
+}
