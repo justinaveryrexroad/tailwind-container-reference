@@ -1,0 +1,35 @@
+---
+import Col from "../Col.astro";
+---
+
+<h2 class="mb-2 text-xl font-semibold">Subgrid</h2>
+<div class="row mb-2 bg-gray-400 py-2">
+  <Col className="lg:w-1/2">
+    <div class="row my-8 flex-grow bg-gray-500 py-2">
+      <Col className="mb-2 md:mb-0 md:w-1/2">
+        <span class="font-semibold">
+          <span class="md:hidden">Full Width</span>
+          <span class="hidden md:inline-block">
+            <span class="text-orange-600">[md]</span> 1/2
+          </span>
+        </span>
+      </Col>
+      <Col className="md:w-1/2">
+        <span class="font-semibold">
+          <span class="md:hidden">Full Width</span>
+          <span class="hidden md:inline-block">
+            <span class="text-orange-600">[md]</span> 1/2
+          </span>
+        </span>
+      </Col>
+    </div>
+  </Col>
+  <Col className="lg:w-1/2">
+    <span class="font-semibold">
+      <span class="lg:hidden">Full Width</span>
+      <span class="hidden lg:inline-block">
+        <span class="text-orange-600">[lg]</span> 1/2
+      </span>
+    </span>
+  </Col>
+</div>

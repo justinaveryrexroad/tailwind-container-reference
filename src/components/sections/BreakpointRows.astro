@@ -1,0 +1,35 @@
+---
+import Col from "../Col.astro";
+---
+
+<h2 class="mb-2 text-xl font-semibold">Col width changes with breakpoint</h2>
+<div class="row mb-2 bg-gray-400 py-2">
+  <Col className="md:w-3/4 lg:w-3/5 xl:w-1/2">
+    <span class="font-semibold">
+      <span class="md:hidden">full</span>
+      <span class="hidden md:inline-block lg:hidden">
+        <span class="text-orange-600">[md]</span> 3/4
+      </span>
+      <span class="hidden lg:inline-block xl:hidden">
+        <span class="text-orange-600">[lg]</span> 3/5
+      </span>
+      <span class="hidden xl:inline-block">
+        <span class="text-orange-600">[xl]</span> 1/2
+      </span>
+    </span>
+  </Col>
+  <Col className="md:w-1/4 lg:w-2/5 xl:w-1/2">
+    <span class="font-semibold">
+      <span class="md:hidden">full</span>
+      <span class="hidden md:inline-block lg:hidden">
+        <span class="text-orange-600">[md]</span> 1/4
+      </span>
+      <span class="hidden lg:inline-block xl:hidden">
+        <span class="text-orange-600">[lg]</span> 2/5
+      </span>
+      <span class="hidden xl:inline-block">
+        <span class="text-orange-600">[xl]</span> 1/2
+      </span>
+    </span>
+  </Col>
+</div>

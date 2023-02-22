@@ -1,7 +1,12 @@
 ---
 import "../styles/base.css";
-import BreakpointTable from "../components/BreakpointTable.astro";
-import Container from "../components/Container";
+import BreakpointTable from "../components/sections/BreakpointTable.astro";
+import StandardRows from "../components/sections/StandardRows.astro";
+import BreakpointRows from "../components/sections/BreakpointRows.astro";
+import StaticColumn from "../components/sections/StaticColumn.astro";
+import SubGrid from "../components/sections/SubGrid.astro";
+import WidthBadge from "../components/WidthBadge";
+import Ordering from "../components/sections/Ordering.astro";
 ---
 
 <html lang="en">
@@ -10,13 +15,23 @@ import Container from "../components/Container";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>Grid/Column Reference</title>
   </head>
   <body>
     <div
       class="flex min-h-screen flex-col items-center justify-center bg-gray-200"
     >
-      <Container client:only />
+      <div class="container relative my-16 bg-gray-300 px-2">
+        <WidthBadge client:idle />
+        <h1 class="mb-4 pt-8 text-center text-2xl">
+          <span class="font-semibold">Container with 0.5rem padding</span>
+        </h1>
+        <StandardRows />
+        <BreakpointRows />
+        <StaticColumn />
+        <SubGrid />
+        <Ordering />
+      </div>
       <div class="container mb-16 bg-gray-100">
         <BreakpointTable />
       </div>

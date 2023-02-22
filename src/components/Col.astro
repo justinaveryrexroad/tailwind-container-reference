@@ -1,0 +1,19 @@
+---
+import cn from "classnames";
+import WidthBadge from "./WidthBadge";
+
+interface Props {
+  className?: Parameters<typeof cn>[number];
+}
+
+const { className } = Astro.props;
+---
+
+<div class={cn("flex", className)}>
+  <div
+    class="relative flex min-h-[100px] flex-grow items-center justify-center bg-blue-200"
+  >
+    <WidthBadge client:idle />
+    <slot />
+  </div>
+</div>

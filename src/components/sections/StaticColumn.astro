@@ -1,0 +1,17 @@
+---
+import Col from "../Col.astro";
+---
+
+<h2 class="mb-2 text-xl font-semibold">Static width column</h2>
+<div class="row mb-2 bg-gray-400 py-2">
+  <Col className="w-[300px] text-center leading-none">
+    <span class="font-semibold">
+      300px
+      <br />
+    </span>
+    <span class="text-xs">(w/ gutter)</span>
+  </Col>
+  <Col className="col">
+    <span class="font-semibold">Auto-fill</span>
+  </Col>
+</div>

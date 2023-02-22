@@ -1,21 +1,25 @@
-import { Ref, useEffect, useState } from "preact/hooks";
+import { useCallback, useState } from "preact/hooks";
 
-export default function useMeasure(ref: Ref<HTMLElement>) {
+export default function useMeasure(): [
+  number | undefined,
+  (node: Element | null) => void
+] {
   const [offsetWidth, setOffsetWidth] = useState<number>();
-  const [clientWidth, setClientWidth] = useState<number>();
 
-  const resizeHandler = () => {
-    if (ref.current !== null) {
-      setOffsetWidth(ref.current?.offsetWidth);
-      setClientWidth(ref.current?.clientWidth);
+  const resizeObserver = new ResizeObserver((entries) => {
+    for (const entry of entries) {
+      const { target } = entry;
+      if (target instanceof HTMLElement) {
+        setOffsetWidth(target.offsetWidth);
+      }
     }
-  };
+  });
 
-  useEffect(() => {
-    resizeHandler();
-    window.addEventListener("resize", resizeHandler);
-    return () => window.removeEventListener("resize", resizeHandler);
-  }, [ref]);
+  const ref = useCallback((node: Element | null) => {
+    if (node !== null) {
+      resizeObserver.observe(node);
+    }
+  }, []);
 
-  return { offsetWidth, clientWidth };
+  return [offsetWidth, ref];
 }

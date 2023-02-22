@@ -1,0 +1,19 @@
+---
+import Col from "../Col.astro";
+---
+
+<h2 class="mb-2 text-xl font-semibold">Reordering on breakpoint</h2>
+<div class="row mb-2 bg-gray-400 py-2">
+  <Col className="mb-2 md:mb-0 lg:mb-0 md:w-1/2 lg:col md:order-2">
+    <span class="text-4xl font-semibold">1</span>
+  </Col>
+  <Col className="mb-2  md:mb-0 lg:mb-0 md:w-1/2 lg:col md:order-3">
+    <span class="text-4xl font-semibold">2</span>
+  </Col>
+  <Col className="mb-2 lg:mb-0 md:w-1/2 lg:col md:order-1">
+    <span class="text-4xl font-semibold">3</span>
+  </Col>
+  <Col className="md:mb-2 lg:mb-0 md:w-1/2 lg:col md:order-0">
+    <span class="text-4xl font-semibold">4</span>
+  </Col>
+</div>
